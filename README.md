@@ -1,5 +1,5 @@
-# python-package
+# logger-utility
 Use esse pacote para...  
 
 # install
-`pdm add python-package`  
+`pdm add logger-utility`  
