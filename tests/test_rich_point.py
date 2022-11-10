@@ -8,14 +8,11 @@ class TestRichPoint(TestCase):
         r = RichPoint("test").tag("foo", 1).field("bar", 2)
         c = r.copy().tag("foobar", 3).field("barfoo", 4)
 
-        assert r._name == c._name
-        assert r._tags != c._tags
-        assert r._fields != c._fields
+        print(r.to_line_protocol())
+        print(c.to_line_protocol())
 
-        assert "foo" in r._tags
-        assert "foo" in c._tags
-        assert "foobar" not in r._tags
-        assert "foobar" in c._tags
+        assert "test,foo=1 bar=2i" == r.to_line_protocol()
+        assert "test,foo=1,foobar=3 bar=2i,barfoo=4i" == c.to_line_protocol()
 
 
 if __name__ == "__main__":
