@@ -8,7 +8,9 @@ from logger_utility.rich_point import RichPoint
 
 
 class WritePoint(RichPoint):
-    def __init__(self, measurement_name: str, write_api: WriteApi | WriteApiAsync):
+    def __init__(
+        self, measurement_name: str, write_api: WriteApi | WriteApiAsync = None
+    ):
         self._write_api = write_api
 
         super().__init__(measurement_name=measurement_name)
@@ -23,10 +25,11 @@ class WritePoint(RichPoint):
             return self._write_api.write(
                 bucket=bucket, org=org, record=self, write_precision=write_precision
             )
-
-        return await self._write_api.write(
-            bucket=bucket, org=org, record=self, write_precision=write_precision
-        )
+        elif isinstance(self._write_api, WriteApiAsync):
+            return await self._write_api.write(
+                bucket=bucket, org=org, record=self, write_precision=write_precision
+            )
+        return None
 
     def copy(self):
         r = super().copy()
