@@ -227,7 +227,7 @@ dependencies = [
 
 [metadata]
 lock_version = "4.0"
-content_hash = "sha256:c1dffff67152acbc613f47005d9be455bad78cd2f6127626634a8749650adeb0"
+content_hash = "sha256:eb75096ab65a75531cc18f86012323d417c5d1cb50bb9be63f00574e606ee246"
 
 [metadata.files]
 "aiocsv 1.2.3" = [

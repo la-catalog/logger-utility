@@ -7,8 +7,8 @@ authors = [
     {name = "thiagola92", email = "thiagola92@gmail.com"},
 ]
 dependencies = [
-    "influxdb-client[async]>=1.34.0",
-    "rich>=12.6.0",
+    "influxdb-client[async]==1.34.0",
+    "rich==12.6.0",
 ]
 
 [project.urls]
