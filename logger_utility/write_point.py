@@ -1,4 +1,4 @@
-from influxdb_client import WritePrecision
+from influxdb_client import Point, WritePrecision
 from influxdb_client.client.write.point import DEFAULT_WRITE_PRECISION
 from influxdb_client.client.write_api import WriteApi
 from influxdb_client.client.write_api_async import WriteApiAsync
@@ -31,9 +31,10 @@ class WritePoint(RichPoint):
         return None
 
     def copy(self):
-        r = super().copy()
-        w = WritePoint(r._name, self._write_api)
-        w._tags = r._tags
-        w._fields = r._fields
-        w._time = r._time
+        p = Point.from_dict(self.__dict__())
+        w = WritePoint(p._name, self._write_api)
+        w._tags = p._tags
+        w._fields = p._fields
+        w._time = p._time
+        w._write_precision = p._write_precision
         return w

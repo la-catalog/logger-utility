@@ -24,6 +24,7 @@ class RichPoint(Point):
         r._tags = p._tags
         r._fields = p._fields
         r._time = p._time
+        r._write_precision = p._write_precision
         return r
 
     def __dict__(self) -> dict:
