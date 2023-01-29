@@ -1,5 +1,4 @@
 from influxdb_client import WritePrecision
-from influxdb_client.client.influxdb_client_async import InfluxDBClientAsync
 from influxdb_client.client.write.point import DEFAULT_WRITE_PRECISION
 from influxdb_client.client.write_api import WriteApi
 from influxdb_client.client.write_api_async import WriteApiAsync

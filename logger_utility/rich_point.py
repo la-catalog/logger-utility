@@ -1,5 +1,4 @@
 import json
-from copy import deepcopy
 
 from influxdb_client import Point
 from rich.console import Console
